@@ -1,19 +1,31 @@
 {
   "name": "storybook",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
+    "@babel/cli": "^7.17.10",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "babel": {
+    "presets": [
+      [
+        "storybook",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +46,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "main": "dist/index.js",
+  "repository": "https://github.com/Hieu28996/storybook",
+  "author": "Hieu_히에우 <hieu28996@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "auto": "^10.37.1"
   }
 }
